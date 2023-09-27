@@ -1,4 +1,4 @@
-## 为了更好的创建项目，这里提供了一个模板，可以直接复制使用
+## 为了更好的创建项目，这里提供了一个基础的依赖
 
 ## Getting started
 - 创建项目 
@@ -9,14 +9,9 @@
 - 防止刷机
 - 
 
-```dart
-const like = 'sample';
-```
-
 ## 接入项目
-
-1- 项目中引入 awesome_base 扩展包
-
+1、创建项目
+- 项目中引入 awesome_base 扩展包
 ```dart
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
