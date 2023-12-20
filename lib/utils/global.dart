@@ -30,7 +30,7 @@ class Global {
     //设计稿大小
     setDesignWHD(w, h);
     //初始化设备 在进入
-    await PackageUtils().init();
+    await PackageUtils.instance.init();
 
     callback();
     if (kReleaseMode) {

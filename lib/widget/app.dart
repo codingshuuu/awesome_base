@@ -4,6 +4,7 @@ import 'package:awesome_ext/awesome_ext.dart';
 import 'package:awesome_ext/mixin/route/my_route_observer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -22,6 +23,7 @@ class App extends StatefulWidget {
   final ThemeBuilder? themeBuilder;
   final List<SingleChildWidget> providers;
   final Locale? fallbackLocale;
+
   ///route监听
   final List<NavigatorObserver>? navigatorObservers;
 
@@ -63,10 +65,11 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
+    final observers = widget.navigatorObservers ?? [myRouteObserver];
     return MultiProvider(
       providers: widget.providers,
       child: GetMaterialApp(
-        navigatorObservers: widget.navigatorObservers ?? [myRouteObserver],
+        navigatorObservers: observers..add(FlutterSmartDialog.observer),
         debugShowCheckedModeBanner: false,
         enableLog: !kReleaseMode,
         // logWriterCallback: Logger.write,
@@ -79,6 +82,7 @@ class _AppState extends State<App> {
         translations: widget.translations,
         fallbackLocale: widget.fallbackLocale,
         builder: (context, child) {
+          FlutterSmartDialog.init();
           var isPad = !kIsWeb && (context.isTablet || GetPlatform.isDesktop);
           if (isPad) {
             Global.setTable(1024, 768.0);

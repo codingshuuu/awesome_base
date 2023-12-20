@@ -7,13 +7,10 @@ import 'base_config.dart';
 class ThemeUtil {
   static bool currentIsDark = false;
 
-  static ThemeData copyTheme(
-    Color themeColor, {
-    Color? appBarColor,
-    bool centerTitle = true,
-    bool isDarkMode = false,
-  }) {
-    return (isDarkMode ? ThemeData.dark() : ThemeData.light()).copyWith(
+  static ThemeData copyTheme(Color themeColor,
+      {Color? appBarColor, bool centerTitle = true, bool isDarkMode = false, bool useMaterial3 = false}) {
+    return (isDarkMode ? ThemeData.dark(useMaterial3: useMaterial3) : ThemeData.light(useMaterial3: useMaterial3))
+        .copyWith(
       primaryColor: themeColor,
       //默认的主题色
       // primaryColorBrightness: isDarkMode ? Brightness.dark : Brightness.light,

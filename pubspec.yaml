@@ -1,6 +1,6 @@
 name: awesome_base
 description: A new Flutter  base project.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/codingshuuu/awesome_base
 
 environment:
@@ -15,11 +15,12 @@ dependencies:
   provider: ^6.0.5
   dio: ^5.3.3
   json_annotation: ^4.8.1 # JSON 解析
-  awesome_ext: ^0.0.4
+  awesome_ext: ^0.0.5
   #root 判断是否越狱
   root_access: ^1.0.4
   #ios越狱, embedding V2 https://github.com/jeroentrappers/flutter_jailbreak_detection/issues/14
   flutter_jailbreak_detection: ^1.6.0
+  flutter_smart_dialog: ^4.3.6
 
 dev_dependencies:
   flutter_test:
