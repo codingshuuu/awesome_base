@@ -82,7 +82,7 @@ class _AppState extends State<App> {
         translations: widget.translations,
         fallbackLocale: widget.fallbackLocale,
         builder: (context, child) {
-          FlutterSmartDialog.init();
+          TransitionBuilder dialogBuilder = FlutterSmartDialog.init();
           var isPad = !kIsWeb && (context.isTablet || GetPlatform.isDesktop);
           if (isPad) {
             Global.setTable(1024, 768.0);
@@ -101,13 +101,13 @@ class _AppState extends State<App> {
               color: Colors.white,
               child: Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 700),
-                  child: innerChild,
+                    constraints: const BoxConstraints(maxWidth: 700),
+                    child: dialogBuilder(context, innerChild)
                 ),
               ),
             );
           }
-          return innerChild;
+          return dialogBuilder(context, innerChild);
         },
       ),
     );
